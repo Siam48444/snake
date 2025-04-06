@@ -1,0 +1,12 @@
+.container {
+	margin: auto;
+	width: max-content;
+	/*height: 100vh;
+	height: 100dvh;*/
+	position: relative;
+}
+
+.topSection {
+	background-color: green;
+	width: 100%;
+}
