@@ -21,7 +21,7 @@ window.addEventListener('resize', setBoard);
 
 // Calculates and sets the game board size based on the window height
 function setBoard() {
-	boardHeight = window.innerHeight * 0.9 - topSection.offsetHeight;
+	boardHeight = Math.min(window.innerHeight, window.innerWidth) * 0.9 - topSection.offsetHeight;
 	boardWidth = boardHeight;
 
 	gameBoard.height = boardHeight; 
