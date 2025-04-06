@@ -6,7 +6,8 @@ const currentScoreText = document.getElementById('currentScoreText');
 
 
 // board
-let boardSize;
+let boardWidth;
+let boardHeight;
 let cellWidth;
 let rows;
 let columns;
@@ -18,6 +19,6 @@ window.addEventListener('resize', setBoard);
 
 
 function setBoard() {
-	boardSize = window.innerHeight * 0.9 - topSection.offsetHeight;
-	gameBoard.height = gameBoard.width = boardSize;
+	boardWidth = window.innerHeight * 0.9 - topSection.offsetHeight;
+	gameBoard.height = gameBoard.width = boardWidth;
 }
