@@ -19,7 +19,7 @@ let snakeWidth;
 let snakeHeight;
 let snakeVelocityX = 0;
 let snakeVelocityY = 0;
-let snakeSpeed = 100;
+let snakeSpeed = 69; // The lesser the faster speed
 
 // The food variables
 let foodX;
@@ -61,20 +61,20 @@ function setupBoard() {
 	cellWidth = gameBoard.width / cellCount;
 
 	// Initialize snake's position and size
-	snakeX = cellWidth * 2;
-	snakeY = cellWidth * 5;
+	snakeX = cellWidth * 5;
+	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	snakeWidth = snakeHeight = cellWidth;
 
 	// Initialize food's position and size
 	foodX = cellWidth * 8;
-	foodY = cellWidth * 5;
+	foodY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodWidth = foodHeight = cellWidth;
 }
 
 
 // Set up the main game logics and functions
 window.addEventListener('load', () => {
-	placeFood();
+	// placeFood();
 
 	document.addEventListener('keydown', moveSnake);
 	setInterval(update, snakeSpeed);
@@ -86,6 +86,10 @@ function update() {
 	// Set the snake's movement
 	snakeX += snakeVelocityX * cellWidth;
 	snakeY += snakeVelocityY * cellWidth;
+
+	// Draw the food
+	context.fillStyle = colorFood;
+	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 
 	// Draw the snake
 	context.fillStyle = colorSnake;
@@ -107,10 +111,6 @@ function placeFood() {
 	// Convert cell index to pixel position
 	foodX = randomColumn * cellWidth;
 	foodY = randomRow * cellWidth;
-
-	// Draw the food
-	context.fillStyle = colorFood;
-	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 }
 
 
