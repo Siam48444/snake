@@ -74,7 +74,7 @@ function setupBoard() {
 
 // Set up the main game logics and functions
 window.addEventListener('load', () => {
-	// placeFood();
+	placeFood();
 
 	document.addEventListener('keydown', moveSnake);
 	setInterval(update, snakeSpeed);
@@ -83,6 +83,9 @@ window.addEventListener('load', () => {
 
 // Update the snake and food positions
 function update() {
+	// Clear the previous frame
+	context.clearRect(0, 0, boardWidth, boardHeight);
+
 	// Set the snake's movement
 	snakeX += snakeVelocityX * cellWidth;
 	snakeY += snakeVelocityY * cellWidth;
