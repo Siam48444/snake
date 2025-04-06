@@ -12,6 +12,13 @@ html {
     padding: 0;
     box-sizing: border-box;
     position: relative;
+
+    animation: fade forwards 500ms;
+}
+
+@keyframes fade {
+    from { opacity: 0; pointer-events: none; }
+    to { opacity: 1; pointer-events: all; }
 }
 
 
