@@ -1,3 +1,4 @@
+// Get DOM elements
 const gameBoard = document.getElementById('gameBoard');
 const contex = gameBoard.getContext('2d');
 const topSection = document.getElementById('topSection');
@@ -5,7 +6,7 @@ const highScoreText = document.getElementById('highScoreText');
 const currentScoreText = document.getElementById('currentScoreText');
 
 
-// board
+// The game board variables
 let boardWidth;
 let boardHeight;
 let cellWidth;
@@ -13,12 +14,16 @@ let rows;
 let columns;
 
 
-// set the board size
+// Set the board size when the page loads or the window is resized
 window.addEventListener('load', setBoard);
 window.addEventListener('resize', setBoard);
 
 
+// Calculates and sets the game board size based on the window height
 function setBoard() {
-	boardWidth = window.innerHeight * 0.9 - topSection.offsetHeight;
-	gameBoard.height = gameBoard.width = boardWidth;
+	boardHeight = window.innerHeight * 0.9 - topSection.offsetHeight;
+	boardWidth = boardHeight;
+
+	gameBoard.height = boardHeight; 
+	gameBoard.width = boardWidth; // Make canvas square
 }
