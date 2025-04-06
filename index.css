@@ -1,12 +1,16 @@
 .container {
+	position: relative;
 	margin: auto;
 	width: max-content;
 	/*height: 100vh;
 	height: 100dvh;*/
-	position: relative;
 }
 
 .topSection {
-	background-color: green;
+	background-color: red;
 	width: 100%;
+}
+
+.gameBoard {
+	aspect-ratio: 1;
 }
