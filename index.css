@@ -28,6 +28,6 @@
 }
 
 .gameBoard {
-	background-color: white;
+	background-color: var(--clr_board);
 	border: solid var(--clr_main) 0.1em;
 }
