@@ -20,6 +20,7 @@ let snakeHeight;
 let snakeVelocityX = 0;
 let snakeVelocityY = 0;
 let snakeSpeed = 69; // The lesser the faster speed
+let snakeBody = [];
 
 // The food variables
 let foodX;
@@ -92,11 +93,13 @@ function update() {
 
 	// Update the food's place if eaten
 	if (
-		snakeX <= foodX + foodWidth &&
-		snakeX + snakeWidth >= foodX &&
-		snakeY <= foodY + foodWidth &&
-		snakeY + snakeWidth >= foodY
+		snakeX < foodX + foodWidth &&
+		snakeX + snakeWidth > foodX &&
+		snakeY < foodY + foodWidth &&
+		snakeY + snakeWidth > foodY
 	) {
+		snakeBody.push([foodX, foodY]);
+		console.log(snakeBody)
 		placeFood();
 	}
 
@@ -107,6 +110,11 @@ function update() {
 	// Draw the snake
 	context.fillStyle = colorSnake;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+
+	// Print the snake body segments
+	for (let body of snakeBody) {
+		context.fillRect(body[0], body[1], snakeWidth, snakeHeight);
+	}
 }
 
 
