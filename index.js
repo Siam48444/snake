@@ -105,5 +105,20 @@ function placeFood() {
 
 // Move the snake with key-press
 function moveSnake(e) {
-	if ()
+	if (e.code === 'ArrowUp') {
+		snakeVelocityX = 0;
+		snakeVelocityY = -1;
+	}
+	if (e.code === 'ArrowDown') {
+		snakeVelocityX = 0;
+		snakeVelocityY = 1;
+	}
+	if (e.code === 'ArrowLeft') {
+		snakeVelocityX = -1;
+		snakeVelocityY = 0;
+	}
+	if (e.code === 'ArrowRight') {
+		snakeVelocityX = 1;
+		snakeVelocityY = 0;
+	}
 }
