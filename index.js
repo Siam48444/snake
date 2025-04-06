@@ -10,7 +10,7 @@ const currentScoreText = document.getElementById('currentScoreText');
 let boardWidth;
 let boardHeight;
 let cellWidth;
-let cellCount = 20;
+let cellCount = 30;
 
 // The snake variables
 let snakeX;
@@ -18,8 +18,15 @@ let snakeY;
 let snakeWidth;
 let snakeHeight;
 
+// The food variables
+let foodX;
+let foodY;
+let foodWidth;
+let foodHeight;
+
 // Some colors
-const colorSnake = 'blue';
+const colorSnake = '#0a57d1';
+const colorFood = '#e84225';
 
 
 
@@ -37,23 +44,37 @@ function setupBoard() {
 	gameBoard.height = boardHeight; // Set the board height and width
 	gameBoard.width = boardWidth; // Make the board square
 
-	// Control the game board width for bigger screens
+	// Apply calculated dimensions to the canvas
+	gameBoard.height = boardHeight;
+	gameBoard.width = boardWidth;
+
+	// Limit board size on larger screens
 	const maxWidth = 1111;
 	if (gameBoard.width > maxWidth) {
 		gameBoard.width = gameBoard.height = maxWidth;
 	}
 
-	cellWidth = gameBoard.width / cellCount; // Calculate cell width
+	// Calculate size of each cell
+	cellWidth = gameBoard.width / cellCount;
 
-
-	// Snake
+	// Initialize snake's position and size
 	snakeX = cellWidth * 2;
 	snakeY = cellWidth * 5;
 	snakeWidth = snakeHeight = cellWidth;
+
+	// Initialize food's position and size
+	foodX = cellWidth * 8;
+	foodY = cellWidth * 5;
+	foodWidth = foodHeight = cellWidth;
 }
 
 
 window.addEventListener('load', () => {
+	// Draw the snake
 	context.fillStyle = colorSnake;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+
+	// Draw the food
+	context.fillStyle = colorFood;
+	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 });
