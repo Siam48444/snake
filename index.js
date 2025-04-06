@@ -66,7 +66,7 @@ function setupBoard() {
 	snakeWidth = snakeHeight = cellWidth;
 
 	// Initialize food's position and size
-	foodX = cellWidth * 8;
+	foodX = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodWidth = foodHeight = cellWidth;
 }
