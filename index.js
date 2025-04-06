@@ -69,6 +69,7 @@ function setupBoard() {
 }
 
 
+// Set up the main game logics and functions
 window.addEventListener('load', () => {
 	placeFood();
 	update();
@@ -96,7 +97,4 @@ function placeFood() {
 	// Convert cell index to pixel position
 	foodX = randomColumn * cellWidth;
 	foodY = randomRow * cellWidth;
-
-	// Set food size
-	foodWidth = foodHeight = cellWidth;
 }
