@@ -11,7 +11,7 @@
 }
 
 .topSection {
-	background-color: #777777;
+	background-color: #000000;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -25,5 +25,6 @@
 }
 
 .gameBoard {
-	background-color: #555555;
+	background-color: #ffffff;
+	border: solid black 0.1em;
 }
