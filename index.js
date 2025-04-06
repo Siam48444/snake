@@ -1,6 +1,6 @@
 // Get DOM elements
 const gameBoard = document.getElementById('gameBoard');
-const contex = gameBoard.getContext('2d');
+const context = gameBoard.getContext('2d');
 const topSection = document.getElementById('topSection');
 const highScoreText = document.getElementById('highScoreText');
 const currentScoreText = document.getElementById('currentScoreText');
@@ -13,25 +13,29 @@ let cellWidth;
 let cellCount = 20;
 
 // The snake variables
-let snakeWidth;
-let snakeHeight;
 let snakeX;
 let snakeY; 
+let snakeWidth;
+let snakeHeight;
+
+// Some colors
+const colorSnake = 'blue';
 
 
 
 // Set the board size when the page loads or the window is resized
-window.addEventListener('load', setGameBoard);
-window.addEventListener('resize', setGameBoard);
+window.addEventListener('load', setupBoard);
+window.addEventListener('resize', setupBoard);
 
 
 // Calculates and sets the game board size
-function setGameBoard() {
+function setupBoard() {
+	// Board
 	boardHeight = Math.min(window.innerHeight, window.innerWidth) * 0.9 - topSection.offsetHeight;
 	boardWidth = boardHeight; // Make the board square
 
 	gameBoard.height = boardHeight; // Set the board height and width
-	gameBoard.width = boardWidth; 
+	gameBoard.width = boardWidth; // Make the board square
 
 	// Control the game board width for bigger screens
 	const maxWidth = 1111;
@@ -39,6 +43,17 @@ function setGameBoard() {
 		gameBoard.width = gameBoard.height = maxWidth;
 	}
 
-	cellWidth = boardHeight / cellCount; // Calculate cell width
-	console.log(cellWidth)
+	cellWidth = gameBoard.width / cellCount; // Calculate cell width
+
+
+	// Snake
+	snakeX = cellWidth * 2;
+	snakeY = cellWidth * 5;
+	snakeWidth = snakeHeight = cellWidth;
 }
+
+
+window.addEventListener('load', () => {
+	context.fillStyle = colorSnake;
+	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+});
