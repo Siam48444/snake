@@ -1,4 +1,3 @@
-/* Set tab size to 4 spaces globally */
 *,
 *::after,
 *::before {
@@ -46,6 +45,6 @@ html {
 
 
 :root {
-    --clr_main: #4a752c;
-    --clr_board: #aad699;
+    --clr_main: #000000;
+    --clr_board: #ffffff;
 }
