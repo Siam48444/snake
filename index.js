@@ -12,6 +12,13 @@ let boardHeight;
 let cellWidth;
 let cellCount = 20;
 
+// The snake variables
+let snakeWidth;
+let snakeHeight;
+let snakeX;
+let snakeY; 
+
+
 
 // Set the board size when the page loads or the window is resized
 window.addEventListener('load', setGameBoard);
