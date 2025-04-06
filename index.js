@@ -19,7 +19,7 @@ let snakeWidth;
 let snakeHeight;
 let snakeVelocityX = 0;
 let snakeVelocityY = 0;
-let snakeSpeed = 200;
+let snakeSpeed = 100;
 
 // The food variables
 let foodX;
@@ -90,6 +90,11 @@ function update() {
 	// Draw the snake
 	context.fillStyle = colorSnake;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+
+	// Update the food's place if eaten
+	if (snakeX === foodX && snakeY === foodY) {
+		placeFood();
+	}
 }
 
 
@@ -111,7 +116,7 @@ function placeFood() {
 
 // Move the snake with key-press
 function moveSnake(e) {
-	if (e.code === 'ArrowUp') {
+	if (e.code === 'ArrowUp' && snakeVelocityY !== -1) {
 		snakeVelocityX = 0;
 		snakeVelocityY = -1;
 	}
