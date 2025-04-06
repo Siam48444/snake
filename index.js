@@ -99,7 +99,12 @@ function update() {
 	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 
 	// Update the food's place if eaten
-	if (snakeX === foodX && snakeY === foodY) {
+	if (
+		snakeX <= foodX + foodWidth &&
+		snakeX + snakeWidth > foodX &&
+		snakeY <= foodY + foodWidth &&
+		snakeY + snakeWidth > foodY
+	) {
 		placeFood();
 	}
 }
