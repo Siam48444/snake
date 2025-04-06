@@ -27,11 +27,18 @@ window.addEventListener('resize', setGameBoard);
 
 // Calculates and sets the game board size
 function setGameBoard() {
-	boardHeight = Math.min(window.innerHeight, window.innerWidth) * 0.95 - topSection.offsetHeight;
+	boardHeight = Math.min(window.innerHeight, window.innerWidth) * 0.9 - topSection.offsetHeight;
 	boardWidth = boardHeight; // Make the board square
 
 	gameBoard.height = boardHeight; // Set the board height and width
 	gameBoard.width = boardWidth; 
 
+	// Control the game board width for bigger screens
+	const maxWidth = 1111;
+	if (gameBoard.width > maxWidth) {
+		gameBoard.width = gameBoard.height = maxWidth;
+	}
+
 	cellWidth = boardHeight / cellCount; // Calculate cell width
+	console.log(cellWidth)
 }
