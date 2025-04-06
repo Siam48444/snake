@@ -11,7 +11,7 @@
 }
 
 .topSection {
-	background-color: black;
+	background-color: var(--clr_main);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -29,5 +29,5 @@
 
 .gameBoard {
 	background-color: white;
-	border: solid black 0.1em;
+	border: solid var(--clr_main) 0.1em;
 }
