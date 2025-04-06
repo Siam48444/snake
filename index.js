@@ -15,15 +15,15 @@ let columns;
 
 
 // Set the board size when the page loads or the window is resized
-window.addEventListener('load', setBoard);
-window.addEventListener('resize', setBoard);
+window.addEventListener('load', setGameBoard);
+window.addEventListener('resize', setGameBoard);
 
 
 // Calculates and sets the game board size based on the window height
-function setBoard() {
+function setGameBoard() {
 	boardHeight = Math.min(window.innerHeight, window.innerWidth) * 0.9 - topSection.offsetHeight;
-	boardWidth = boardHeight;
+	boardWidth = boardHeight; // Make the board square
 
-	gameBoard.height = boardHeight; 
-	gameBoard.width = boardWidth; // Make canvas square
+	gameBoard.height = boardHeight; // Set the board height and width
+	gameBoard.width = boardWidth; 
 }
