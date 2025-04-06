@@ -11,20 +11,23 @@
 }
 
 .topSection {
-	background-color: #000000;
+	background-color: black;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 1em;
 	width: 100%;
-	padding: 1em;
+	padding: 0.8em 1.2em; 
 }
 
 .topSection p {
+	font-family: 'JetBrains Mono', sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
 	color: white;
 }
 
 .gameBoard {
-	background-color: #ffffff;
+	background-color: white;
 	border: solid black 0.1em;
 }
