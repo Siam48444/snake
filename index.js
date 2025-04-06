@@ -74,8 +74,9 @@ function setupBoard() {
 // Set up the main game logics and functions
 window.addEventListener('load', () => {
 	placeFood();
-	update();
+
 	document.addEventListener('keydown', moveSnake);
+	setInterval(update, 5);
 });
 
 
@@ -83,11 +84,9 @@ window.addEventListener('load', () => {
 function update() {
 	// Draw the snake
 	context.fillStyle = colorSnake;
+	snakeX += snakeVelocityX;
+	snakeY += snakeVelocityY;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
-
-	// Draw the food
-	context.fillStyle = colorFood;
-	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 }
 
 
@@ -100,6 +99,10 @@ function placeFood() {
 	// Convert cell index to pixel position
 	foodX = randomColumn * cellWidth;
 	foodY = randomRow * cellWidth;
+
+	// Draw the food
+	context.fillStyle = colorFood;
+	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 }
 
 
