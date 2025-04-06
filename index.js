@@ -90,13 +90,13 @@ function update() {
 	snakeX += snakeVelocityX * cellWidth;
 	snakeY += snakeVelocityY * cellWidth;
 
-	// Draw the food
-	context.fillStyle = colorFood;
-	context.fillRect(foodX, foodY, foodWidth, foodHeight);
-
 	// Draw the snake
 	context.fillStyle = colorSnake;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+
+	// Draw the food
+	context.fillStyle = colorFood;
+	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 
 	// Update the food's place if eaten
 	if (snakeX === foodX && snakeY === foodY) {
