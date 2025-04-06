@@ -70,7 +70,13 @@ function setupBoard() {
 
 
 window.addEventListener('load', () => {
+	placeFood();
 	update();
+});
+
+
+// Update the snake and food positions
+function update() {
 	// Draw the snake
 	context.fillStyle = colorSnake;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
@@ -78,21 +84,19 @@ window.addEventListener('load', () => {
 	// Draw the food
 	context.fillStyle = colorFood;
 	context.fillRect(foodX, foodY, foodWidth, foodHeight);
-});
-
-
-// Update the snake and food positions
+}
 
 
 // Place the food at a random position
 function placeFood() {
-	const maxCells = cellCount;	
-
 	// Generate random cell index for X and Y
-	const randomColumn = Math.floor(Math.random() * maxCells);
-	const randomRow = Math.floor(Math.random() * maxCells);
+	const randomColumn = Math.floor(Math.random() * cellCount);
+	const randomRow = Math.floor(Math.random() * cellCount);
 
 	// Convert cell index to pixel position
 	foodX = randomColumn * cellWidth;
 	foodY = randomRow * cellWidth;
+
+	// Set food size
+	foodWidth = foodHeight = cellWidth;
 }
