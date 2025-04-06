@@ -17,6 +17,8 @@ let snakeX;
 let snakeY; 
 let snakeWidth;
 let snakeHeight;
+let snakeVelocityX = 0;
+let snakeVelocityY = 0;
 
 // The food variables
 let foodX;
@@ -73,6 +75,7 @@ function setupBoard() {
 window.addEventListener('load', () => {
 	placeFood();
 	update();
+	document.addEventListener('keydown', moveSnake);
 });
 
 
@@ -97,4 +100,10 @@ function placeFood() {
 	// Convert cell index to pixel position
 	foodX = randomColumn * cellWidth;
 	foodY = randomRow * cellWidth;
+}
+
+
+// Move the snake with key-press
+function moveSnake(e) {
+	if ()
 }
