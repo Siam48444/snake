@@ -111,26 +111,30 @@ function placeFood() {
 	const randomColumn = Math.floor(Math.random() * cellCount);
 	const randomRow = Math.floor(Math.random() * cellCount);
 
-	// Convert cell index to pixel position
+	// Place the food in the correct position
 	foodX = randomColumn * cellWidth;
 	foodY = randomRow * cellWidth;
 }
 
 
-// Move the snake with key-press
+// Move the snake based on arrow key presses
 function moveSnake(e) {
+	// Move up if not currently moving down
 	if (e.code === 'ArrowUp' && snakeVelocityY !== 1) {
 		snakeVelocityX = 0;
 		snakeVelocityY = -1;
 	}
+	// Move down if not currently moving up
 	if (e.code === 'ArrowDown' && snakeVelocityY !== -1) {
 		snakeVelocityX = 0;
 		snakeVelocityY = 1;
 	}
+	// Move left if not currently moving right
 	if (e.code === 'ArrowLeft' && snakeVelocityX !== 1) {
 		snakeVelocityX = -1;
 		snakeVelocityY = 0;
 	}
+	// Move right if not currently moving left
 	if (e.code === 'ArrowRight' && snakeVelocityX !== -1) {
 		snakeVelocityX = 1;
 		snakeVelocityY = 0;
