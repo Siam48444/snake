@@ -76,16 +76,18 @@ window.addEventListener('load', () => {
 	placeFood();
 
 	document.addEventListener('keydown', moveSnake);
-	setInterval(update, 5);
+	setInterval(update, 1);
 });
 
 
 // Update the snake and food positions
 function update() {
-	// Draw the snake
-	context.fillStyle = colorSnake;
+	// Set the snake's movement
 	snakeX += snakeVelocityX;
 	snakeY += snakeVelocityY;
+
+	// Draw the snake
+	context.fillStyle = colorSnake;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
 }
 
