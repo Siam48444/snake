@@ -19,6 +19,7 @@ let snakeWidth;
 let snakeHeight;
 let snakeVelocityX = 0;
 let snakeVelocityY = 0;
+let snakeSpeed = 200;
 
 // The food variables
 let foodX;
@@ -76,15 +77,15 @@ window.addEventListener('load', () => {
 	placeFood();
 
 	document.addEventListener('keydown', moveSnake);
-	setInterval(update, 1);
+	setInterval(update, snakeSpeed);
 });
 
 
 // Update the snake and food positions
 function update() {
 	// Set the snake's movement
-	snakeX += snakeVelocityX;
-	snakeY += snakeVelocityY;
+	snakeX += snakeVelocityX * cellWidth;
+	snakeY += snakeVelocityY * cellWidth;
 
 	// Draw the snake
 	context.fillStyle = colorSnake;
