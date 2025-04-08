@@ -79,9 +79,6 @@ window.addEventListener('load', () => {
 
 // Initialize the game
 function initGame() {
-	// Clear the previous frame
-	context.clearRect(0, 0, boardWidth, boardHeight);
-
 	// Initialize snake's position and size
 	snakeX = cellWidth * 5;
 	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
@@ -177,6 +174,8 @@ function placeFood() {
 
 // Move the snake based on arrow key presses
 function moveSnake(e) {
+	if (gameOver) return;
+
 	// Move up if not currently moving down
 	if (e.code === 'ArrowUp' && snakeVelocityY !== 1) {
 		snakeVelocityX = 0;
