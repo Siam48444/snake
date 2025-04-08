@@ -75,8 +75,9 @@ window.addEventListener('load', () => {
 	foodY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodWidth = foodHeight = cellWidth;
 
-	document.addEventListener('keydown', moveSnake);
+	// Make the game interactive 
 	setInterval(update, snakeSpeed);
+	document.addEventListener('keydown', moveSnake);
 });
 
 
@@ -84,6 +85,19 @@ window.addEventListener('load', () => {
 function update() {
 	// Clear the previous frame
 	context.clearRect(0, 0, boardWidth, boardHeight);
+
+	// Set the snake's movement
+	snakeX += snakeVelocityX * cellWidth;
+	snakeY += snakeVelocityY * cellWidth;
+
+	// Draw the snake
+	context.fillStyle = colorSnake;
+	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+
+	// Print the snake body segments
+	for (let body of snakeBody) {
+		context.fillRect(body[0], body[1], snakeWidth, snakeHeight);
+	}
 
 	// Draw the food
 	context.fillStyle = colorFood;
@@ -99,19 +113,6 @@ function update() {
 		snakeBody.push([foodX, foodY]);
 		console.log(snakeBody)
 		placeFood();
-	}
-
-	// Set the snake's movement
-	snakeX += snakeVelocityX * cellWidth;
-	snakeY += snakeVelocityY * cellWidth;
-
-	// Draw the snake
-	context.fillStyle = colorSnake;
-	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
-
-	// Print the snake body segments
-	for (let body of snakeBody) {
-		context.fillRect(body[0], body[1], snakeWidth, snakeHeight);
 	}
 }
 
