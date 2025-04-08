@@ -32,6 +32,9 @@ let foodHeight;
 const colorSnake = '#0a57d1';
 const colorFood = '#e84225';
 
+// Others
+let gameOver = false;
+
 
 
 // Set the board size when the page loads or the window is resized
@@ -71,12 +74,23 @@ window.addEventListener('load', () => {
 	snakeWidth = snakeHeight = cellWidth;
 
 	// Start with a small snake body
-	snakeBody.push([foodX - cellWidth, foodY - cellWidth], [foodX - cellWidth * 2, foodY - cellWidth * 2]);
+	snakeBody.push(
+		[foodX - cellWidth, foodY - cellWidth], 
+		[foodX - cellWidth * 2, foodY - cellWidth * 2]
+	);
 
 	// Initialize food's position and size
 	foodX = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodWidth = foodHeight = cellWidth;
+
+	// Draw the snake
+	context.fillStyle = colorSnake;
+	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+
+	// Draw the food
+	context.fillStyle = colorFood;
+	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 
 	// Make the game interactive 
 	setInterval(update, 5000 / snakeSpeed);
@@ -86,6 +100,9 @@ window.addEventListener('load', () => {
 
 // Update the snake and food positions
 function update() {
+	// Return if the game is over
+	if (gameOver) return; 
+
 	// Clear the previous frame
 	context.clearRect(0, 0, boardWidth, boardHeight);
 
@@ -121,7 +138,7 @@ function update() {
 		snakeY + snakeHeight > foodY &&
 		snakeY < foodY + foodWidth
 	) {
-		snakeBody.push([foodX, foodY]);
+		snakeBody.unshift([foodX, foodY]);
 		placeFood();
 	}
 }
