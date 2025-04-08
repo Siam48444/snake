@@ -33,7 +33,7 @@ const colorSnake = '#0a57d1';
 const colorFood = '#e84225';
 
 // Others
-let gameOver = false;
+let gameOverVariable = false;
 
 
 
@@ -101,7 +101,7 @@ window.addEventListener('load', () => {
 // Update the snake and food positions
 function update() {
 	// Return if the game is over
-	if (gameOver) return; 
+	if (gameOverVariable) return; 
 
 	// Clear the previous frame
 	context.clearRect(0, 0, boardWidth, boardHeight);
@@ -141,6 +141,11 @@ function update() {
 		snakeBody.unshift([foodX, foodY]);
 		placeFood();
 	}
+
+	// Check if the game is over
+	if (gameOver()) {
+		gameOverVariable = true;
+	}
 }
 
 
@@ -178,4 +183,15 @@ function moveSnake(e) {
 		snakeVelocityX = 1;
 		snakeVelocityY = 0;
 	}
+}
+
+
+// Checks if the game is over
+function gameOver() {
+	return (
+		snakeX < 0 ||
+		snakeY < 0 ||
+		snakeX + snakeWidth > boardWidth ||
+		snakeY + snakeHeight > boardHeight
+	);
 }
