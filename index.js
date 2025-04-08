@@ -33,7 +33,7 @@ let currentScore;
 let highScore = localStorage.getItem('highScoreSnake') || 0;
 
 // Some colors
-const colorSnake = '#0a57d1';
+const colorSnake = '#000';
 const colorFood = '#e84225';
 
 // Others
@@ -94,7 +94,7 @@ function initGame() {
 	foodWidth = foodHeight = cellWidth;
 
 	// Start with a small snake body
-	snakeBody = []; // Clear the snake body
+	snakeBody = []; // Clear the previous snake body
 	snakeBody.unshift(
 		[foodX - cellWidth, foodY - cellWidth], 
 		[foodX - cellWidth * 2, foodY - cellWidth * 2]
