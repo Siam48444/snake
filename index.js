@@ -69,8 +69,8 @@ function setupBoard() {
 	// Calculate size of each cell
 	cellWidth = gameBoard.width / cellCount;
 
-	popup.width = boardWidth;
-	popup.height = boardHeight;
+	popup.style.width = `${gameBoard.width}px`;
+	popup.style.height = `${gameBoard.height + topSection.offsetHeight}px`;
 }
 
 
