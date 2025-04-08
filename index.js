@@ -20,7 +20,7 @@ let snakeHeight;
 let snakeVelocityX;
 let snakeVelocityY;
 let snakeBody;
-let snakeSpeed = 50; 
+let snakeSpeed = 69; 
 
 // The food variables
 let foodX;
@@ -112,7 +112,9 @@ function initGame() {
 	snakeVelocityX = 0;
 	snakeVelocityY = 0;
 	gameOver = false
+	
 	currentScore = 0;
+	currentScoreText.innerText = currentScore;
 }
 
 
@@ -158,6 +160,9 @@ function update() {
 	) {
 		snakeBody.unshift([foodX, foodY]);
 		placeFood();
+
+		currentScore++;
+		currentScoreText.innerText = currentScore;
 	}
 
 	// Check if the game is over
