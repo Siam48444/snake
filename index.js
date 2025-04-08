@@ -143,7 +143,7 @@ function update() {
 	}
 
 	// Check if the game is over
-	checkGameOver();
+	checkGameOverConditions();
 }
 
 
@@ -185,7 +185,8 @@ function moveSnake(e) {
 
 
 // Checks if the game is over
-function checkGameOver() {
+function checkGameOverConditions() {
+	// Check if the snake crossed the boundary 
 	if (
 		snakeX < 0 ||
 		snakeY < 0 ||
@@ -193,5 +194,17 @@ function checkGameOver() {
 		snakeY + snakeHeight > boardHeight
 	) {
 		gameOver = true;
+		return;
+	}
+
+	// Check if the snake has bitten itself 
+	for (let i = 0; i < snakeBody.length; i++) {
+		if (
+			snakeX === snakeBody[i][0] &&
+			snakeY === snakeBody[i][1]
+		) {
+			gameOver = true;
+			return;
+		}
 	}
 }
