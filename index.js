@@ -5,6 +5,8 @@ const highScoreText = document.getElementById('highScoreText');
 const currentScoreText = document.getElementById('currentScoreText');
 const popup = document.getElementById('popup');
 const restartButton = document.getElementById('restartButton');
+const highScorePopup = document.getElementById('highScorePopup');
+const currentScorePopup = document.getElementById('currentScorePopup');
 
 
 // The game board variables
@@ -69,6 +71,7 @@ function setupBoard() {
 	// Calculate size of each cell
 	cellWidth = gameBoard.width / cellCount;
 
+	// Style the popup section
 	popup.style.width = `${gameBoard.width}px`;
 	popup.style.height = `${gameBoard.height + topSection.offsetHeight}px`;
 }
@@ -227,7 +230,6 @@ function checkGameOverConditions() {
 	) {
 		gameOver = true;
 		popup.classList.add('popupOpen');
-        // initGame();
 		return;
 	}
 
@@ -259,4 +261,7 @@ function updateScore() {
 		highScoreText.innerText = highScore;
 		localStorage.setItem('highScoreSnake', highScore);
 	}
+
+	currentScorePopup.innerText = currentScore;
+	highScorePopup.innerText = highScore;
 }

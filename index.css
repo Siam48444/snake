@@ -67,6 +67,7 @@
 	border: none;
 	padding: 0.5em 1em;
 	cursor: pointer;
+	width: 100%;
 }
 
 .scoreSection {
@@ -79,7 +80,7 @@
 .scoreSection h5 {
 	font-family: 'JetBrains Mono', sans-serif;
 	font-weight: 700;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	color: var(--clr_board);
 	text-align: center;
 }
