@@ -17,16 +17,20 @@ let snakeX;
 let snakeY; 
 let snakeWidth;
 let snakeHeight;
-let snakeVelocityX = 0;
-let snakeVelocityY = 0;
+let snakeVelocityX;
+let snakeVelocityY;
+let snakeBody;
 let snakeSpeed = 50; 
-let snakeBody = [];
 
 // The food variables
 let foodX;
 let foodY;
 let foodWidth;
 let foodHeight;
+
+// Score variables
+let currentScore;
+let highScore;
 
 // Some colors
 const colorSnake = '#0a57d1';
@@ -108,6 +112,7 @@ function initGame() {
 	snakeVelocityX = 0;
 	snakeVelocityY = 0;
 	gameOver = false
+	currentScore = 0;
 }
 
 
