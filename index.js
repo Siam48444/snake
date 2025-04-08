@@ -1,9 +1,9 @@
-// Get DOM elements
 const gameBoard = document.getElementById('gameBoard');
 const context = gameBoard.getContext('2d');
 const topSection = document.getElementById('topSection');
 const highScoreText = document.getElementById('highScoreText');
 const currentScoreText = document.getElementById('currentScoreText');
+const popup = document.getElementById('popup');
 
 
 // The game board variables
@@ -67,6 +67,9 @@ function setupBoard() {
 
 	// Calculate size of each cell
 	cellWidth = gameBoard.width / cellCount;
+
+	// popup.width = boardWidth;
+	// popup.height = boardHeight;
 }
 
 
@@ -233,7 +236,7 @@ function checkGameOverConditions() {
 	// 	) {
 	// 		gameOver = true;
 	// 		if (confirm("Game Over! You bit yourself!\nPress OK to restart.")) {
- //             resetGame();
+ //            	initGame();
  //        	}
 	// 		return;
 	// 	}

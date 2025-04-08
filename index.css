@@ -31,3 +31,11 @@
 	background-color: var(--clr_board);
 	border: solid var(--clr_main) 0.1em;
 }
+
+.popup {
+	background-color: var(--clr_main);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
