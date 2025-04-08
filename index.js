@@ -81,21 +81,22 @@ window.addEventListener('load', () => {
 function initGame() {
 	// Clear the previous frame
 	context.clearRect(0, 0, boardWidth, boardHeight);
-	
+
 	snakeX = cellWidth * 5;
 	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	snakeWidth = snakeHeight = cellWidth;
-
-	// Start with a small snake body
-	snakeBody.unshift(
-		[foodX - cellWidth, foodY - cellWidth], 
-		[foodX - cellWidth * 2, foodY - cellWidth * 2]
-	);
 
 	// Initialize food's position and size
 	foodX = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodWidth = foodHeight = cellWidth;
+
+	// Start with a small snake body
+	// snakeBody = []; // Clear the snake body
+	snakeBody.unshift(
+		[foodX - cellWidth, foodY - cellWidth], 
+		[foodX - cellWidth * 2, foodY - cellWidth * 2]
+	);
 
 	// Draw the snake
 	context.fillStyle = colorSnake;
@@ -104,6 +105,10 @@ function initGame() {
 	// Draw the food
 	context.fillStyle = colorFood;
 	context.fillRect(foodX, foodY, foodWidth, foodHeight);
+
+	// Reset the other properties 
+	let snakeVelocityX = 0;
+	let snakeVelocityY = 0;
 }
 
 
