@@ -30,7 +30,7 @@ let foodHeight;
 
 // Score variables
 let currentScore;
-let highScore;
+let highScore = localStorage.getItem('highScoreSnake') || 0;
 
 // Some colors
 const colorSnake = '#0a57d1';
@@ -115,6 +115,8 @@ function initGame() {
 	
 	currentScore = 0;
 	currentScoreText.innerText = currentScore;
+
+	highScoreText.innerText = highScore;
 }
 
 
@@ -160,9 +162,7 @@ function update() {
 	) {
 		snakeBody.unshift([foodX, foodY]);
 		placeFood();
-
-		currentScore++;
-		currentScoreText.innerText = currentScore;
+		updateScore();
 	}
 
 	// Check if the game is over
@@ -238,4 +238,19 @@ function checkGameOverConditions() {
 	// 		return;
 	// 	}
 	// }
+}
+
+
+// Update the player's scores
+function updateScore() {
+	// The current score
+	currentScore++;
+	currentScoreText.innerText = currentScore;
+
+	// The high score
+	if (currentScore > highScore) {
+		highScore = currentScore;
+		highScoreText.innerText = highScore;
+		localStorage.setItem('highScoreSnake', highScore);
+	}
 }
