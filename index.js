@@ -105,13 +105,12 @@ function update() {
 
 	// Update the food's place if eaten
 	if (
-		snakeX < foodX + foodWidth &&
 		snakeX + snakeWidth > foodX &&
-		snakeY < foodY + foodWidth &&
-		snakeY + snakeWidth > foodY
+		snakeX < foodX + foodWidth &&
+		snakeY + snakeWidth > foodY &&
+		snakeY < foodY + foodWidth
 	) {
 		snakeBody.push([foodX, foodY]);
-		console.log(snakeBody)
 		placeFood();
 	}
 }
