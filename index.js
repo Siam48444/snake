@@ -194,17 +194,19 @@ function checkGameOverConditions() {
 		snakeY + snakeHeight > boardHeight
 	) {
 		gameOver = true;
+		alert("Game Over! You hit the wall.");
 		return;
 	}
 
 	// Check if the snake has bitten itself 
-	for (let i = 0; i < snakeBody.length; i++) {
-		if (
-			snakeX === snakeBody[i][0] &&
-			snakeY === snakeBody[i][1]
-		) {
-			gameOver = true;
-			return;
-		}
-	}
+	// for (let i = 0; i < snakeBody.length; i++) {
+	// 	if (
+	// 		snakeX === snakeBody[i][0] &&
+	// 		snakeY === snakeBody[i][1]
+	// 	) {
+	// 		gameOver = true;
+	// 		alert("Game Over! You bit yourself.");
+	// 		return;
+	// 	}
+	// }
 }
