@@ -86,11 +86,6 @@ function update() {
 	// Clear the previous frame
 	context.clearRect(0, 0, boardWidth, boardHeight);
 
-	// Print the snake body segments
-	for (let i = 0; i < snakeBody.length; i++) {
-		context.fillRect(snakeBody[i][0], snakeBody[i][1], snakeWidth, snakeHeight);
-	}
-
 	// Shift body segments
 	for (let i = snakeBody.length - 1; i > 0; i--) {
 		snakeBody[i] = snakeBody[i - 1];
@@ -110,6 +105,11 @@ function update() {
 	// Draw the snake
 	context.fillStyle = colorSnake;
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
+
+	// Print the snake body segments
+	for (let i = 0; i < snakeBody.length; i++) {
+		context.fillRect(snakeBody[i][0], snakeBody[i][1], snakeWidth, snakeHeight);
+	}
 
 	// Update the food's place if eaten
 	if (
