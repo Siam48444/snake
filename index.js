@@ -70,6 +70,8 @@ window.addEventListener('load', () => {
 	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	snakeWidth = snakeHeight = cellWidth;
 
+	snakeBody.push([foodX - cellWidth, foodY - cellWidth], [foodX - cellWidth * 2, foodY - cellWidth * 2]);
+
 	// Initialize food's position and size
 	foodX = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
