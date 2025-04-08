@@ -122,6 +122,8 @@ function initGame() {
 	currentScoreText.innerText = currentScore;
 
 	highScoreText.innerText = highScore;
+
+	popup.classList.remove('popupOpen');
 }
 
 
@@ -225,7 +227,7 @@ function checkGameOverConditions() {
 	) {
 		gameOver = true;
 		popup.classList.add('popupOpen');
-        initGame();
+        // initGame();
 		return;
 	}
 
