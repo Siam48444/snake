@@ -68,8 +68,8 @@ function setupBoard() {
 	// Calculate size of each cell
 	cellWidth = gameBoard.width / cellCount;
 
-	popup.style.width = boardWidth;
-	popup.style.height = boardHeight;
+	popup.width = boardWidth;
+	popup.height = boardHeight;
 }
 
 
@@ -77,6 +77,7 @@ function setupBoard() {
 window.addEventListener('load', () => {
 	// Initialize the game
 	initGame();
+	restartButton.addEventListener('click', initGame);
 
 	// Make the game interactive 
 	setInterval(update, 5000 / snakeSpeed);

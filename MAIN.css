@@ -13,7 +13,7 @@ html {
     box-sizing: border-box;
     position: relative;
 
-    animation: fade forwards 500ms;
+    animation: fade forwards 1000ms;
 }
 
 @keyframes fade {
