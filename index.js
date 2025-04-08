@@ -99,6 +99,11 @@ function update() {
 		context.fillRect(snakeBody[i][0], snakeBody[i][1], snakeWidth, snakeHeight);
 	}
 
+	// Shift body segments
+	for (let i = snakeBody.length; i > 0; i--) {
+		snakeBody[i] = snakeBody[i - 1];
+	}
+
 	// Draw the food
 	context.fillStyle = colorFood;
 	context.fillRect(foodX, foodY, foodWidth, foodHeight);
