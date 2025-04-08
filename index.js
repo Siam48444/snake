@@ -103,6 +103,9 @@ function update() {
 	for (let i = snakeBody.length; i > 0; i--) {
 		snakeBody[i] = snakeBody[i - 1];
 	}
+	if (snakeBody.length) {
+		snakeBody[0] = [snakeX, snakeY];
+	}
 
 	// Draw the food
 	context.fillStyle = colorFood;
