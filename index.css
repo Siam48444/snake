@@ -15,15 +15,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 1em;
+	gap: 1.5em;
 	width: 100%;
-	padding: 1em 1.5em; 
+	padding: clamp(0.9em, 1.8vmin, 1.5em) clamp(1.2em, 3vmin, 2em); 
 }
 
 .topSection p {
 	font-family: 'JetBrains Mono', sans-serif;
 	font-weight: 500;
-	font-size: 1rem;
+	font-size: clamp(0.9em, 1.8vmin, 1.5em);
 	color: var(--clr_board);
 }
 
@@ -39,7 +39,7 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 1em;
-	padding: 4vmin;
+	padding: clamp(0.9em, 1.8vmin, 1.5em);
 	z-index: 99;
 
 	display: none;
