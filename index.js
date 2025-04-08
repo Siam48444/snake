@@ -95,8 +95,8 @@ function update() {
 	context.fillRect(snakeX, snakeY, snakeWidth, snakeHeight);
 
 	// Print the snake body segments
-	for (let body of snakeBody) {
-		context.fillRect(body[0], body[1], snakeWidth, snakeHeight);
+	for (let i = 0; i < snakeBody.length; i++) {
+		context.fillRect(snakeBody[i][0], snakeBody[i][1], snakeWidth, snakeHeight);
 	}
 
 	// Draw the food
