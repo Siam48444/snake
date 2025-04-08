@@ -69,12 +69,25 @@ function setupBoard() {
 // Set up the main game logics and functions
 window.addEventListener('load', () => {
 	// Initialize snake's position and size
+	initGame();
+
+	// Make the game interactive 
+	setInterval(update, 5000 / snakeSpeed);
+	document.addEventListener('keydown', moveSnake);
+});
+
+
+// Initialize the game
+function initGame() {
+	// Clear the previous frame
+	context.clearRect(0, 0, boardWidth, boardHeight);
+	
 	snakeX = cellWidth * 5;
 	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	snakeWidth = snakeHeight = cellWidth;
 
 	// Start with a small snake body
-	snakeBody.push(
+	snakeBody.unshift(
 		[foodX - cellWidth, foodY - cellWidth], 
 		[foodX - cellWidth * 2, foodY - cellWidth * 2]
 	);
@@ -91,11 +104,7 @@ window.addEventListener('load', () => {
 	// Draw the food
 	context.fillStyle = colorFood;
 	context.fillRect(foodX, foodY, foodWidth, foodHeight);
-
-	// Make the game interactive 
-	setInterval(update, 5000 / snakeSpeed);
-	document.addEventListener('keydown', moveSnake);
-});
+}
 
 
 // Update the snake and food positions
@@ -194,7 +203,9 @@ function checkGameOverConditions() {
 		snakeY + snakeHeight > boardHeight
 	) {
 		gameOver = true;
-		alert("Game Over! You hit the wall.");
+		if (confirm("Game Over! You hit the wall!\nPress OK to restart.")) {
+            initGame();
+        }
 		return;
 	}
 
@@ -205,7 +216,9 @@ function checkGameOverConditions() {
 	// 		snakeY === snakeBody[i][1]
 	// 	) {
 	// 		gameOver = true;
-	// 		alert("Game Over! You bit yourself.");
+	// 		if (confirm("Game Over! You bit yourself!\nPress OK to restart.")) {
+ //             resetGame();
+ //        	}
 	// 		return;
 	// 	}
 	// }
