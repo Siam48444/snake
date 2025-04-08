@@ -60,7 +60,11 @@ function setupBoard() {
 
 	// Calculate size of each cell
 	cellWidth = gameBoard.width / cellCount;
+}
 
+
+// Set up the main game logics and functions
+window.addEventListener('load', () => {
 	// Initialize snake's position and size
 	snakeX = cellWidth * 5;
 	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
@@ -70,12 +74,6 @@ function setupBoard() {
 	foodX = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	foodWidth = foodHeight = cellWidth;
-}
-
-
-// Set up the main game logics and functions
-window.addEventListener('load', () => {
-	placeFood();
 
 	document.addEventListener('keydown', moveSnake);
 	setInterval(update, snakeSpeed);
