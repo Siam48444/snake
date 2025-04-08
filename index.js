@@ -19,7 +19,7 @@ let snakeWidth;
 let snakeHeight;
 let snakeVelocityX = 0;
 let snakeVelocityY = 0;
-let snakeSpeed = 69; // The lesser the faster speed
+let snakeSpeed = 50; 
 let snakeBody = [];
 
 // The food variables
@@ -70,6 +70,7 @@ window.addEventListener('load', () => {
 	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	snakeWidth = snakeHeight = cellWidth;
 
+	// Start with a small snake body
 	snakeBody.push([foodX - cellWidth, foodY - cellWidth], [foodX - cellWidth * 2, foodY - cellWidth * 2]);
 
 	// Initialize food's position and size
@@ -78,7 +79,7 @@ window.addEventListener('load', () => {
 	foodWidth = foodHeight = cellWidth;
 
 	// Make the game interactive 
-	setInterval(update, snakeSpeed);
+	setInterval(update, 5000 / snakeSpeed);
 	document.addEventListener('keydown', moveSnake);
 });
 
@@ -117,7 +118,7 @@ function update() {
 	if (
 		snakeX + snakeWidth > foodX &&
 		snakeX < foodX + foodWidth &&
-		snakeY + snakeWidth > foodY &&
+		snakeY + snakeHeight > foodY &&
 		snakeY < foodY + foodWidth
 	) {
 		snakeBody.push([foodX, foodY]);
