@@ -33,7 +33,7 @@ const colorSnake = '#0a57d1';
 const colorFood = '#e84225';
 
 // Others
-let gameOver = false;
+let gameOver;
 
 
 
@@ -68,7 +68,7 @@ function setupBoard() {
 
 // Set up the main game logics and functions
 window.addEventListener('load', () => {
-	// Initialize snake's position and size
+	// Initialize the game
 	initGame();
 
 	// Make the game interactive 
@@ -82,6 +82,7 @@ function initGame() {
 	// Clear the previous frame
 	context.clearRect(0, 0, boardWidth, boardHeight);
 
+	// Initialize snake's position and size
 	snakeX = cellWidth * 5;
 	snakeY = Math.floor(cellCount / 2) * cellWidth - cellWidth;
 	snakeWidth = snakeHeight = cellWidth;
@@ -92,7 +93,7 @@ function initGame() {
 	foodWidth = foodHeight = cellWidth;
 
 	// Start with a small snake body
-	// snakeBody = []; // Clear the snake body
+	snakeBody = []; // Clear the snake body
 	snakeBody.unshift(
 		[foodX - cellWidth, foodY - cellWidth], 
 		[foodX - cellWidth * 2, foodY - cellWidth * 2]
@@ -107,8 +108,9 @@ function initGame() {
 	context.fillRect(foodX, foodY, foodWidth, foodHeight);
 
 	// Reset the other properties 
-	let snakeVelocityX = 0;
-	let snakeVelocityY = 0;
+	snakeVelocityX = 0;
+	snakeVelocityY = 0;
+	gameOver = false
 }
 
 
