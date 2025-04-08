@@ -4,6 +4,7 @@ const topSection = document.getElementById('topSection');
 const highScoreText = document.getElementById('highScoreText');
 const currentScoreText = document.getElementById('currentScoreText');
 const popup = document.getElementById('popup');
+const restartButton = document.getElementById('restartButton');
 
 
 // The game board variables
@@ -223,9 +224,8 @@ function checkGameOverConditions() {
 		snakeY + snakeHeight > boardHeight
 	) {
 		gameOver = true;
-		if (confirm("Game Over! You hit the wall!\nPress OK to restart.")) {
-            initGame();
-        }
+		popup.classList.add('popupOpen');
+        initGame();
 		return;
 	}
 
