@@ -123,7 +123,6 @@ function initGame() {
 	
 	currentScore = 0;
 	currentScoreText.innerText = currentScore;
-
 	highScoreText.innerText = highScore;
 
 	popup.classList.remove('popupOpen');
@@ -262,6 +261,7 @@ function updateScore() {
 		localStorage.setItem('highScoreSnake', highScore);
 	}
 
+	// Update the popup scores
 	currentScorePopup.innerText = currentScore;
 	highScorePopup.innerText = highScore;
 }

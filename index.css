@@ -52,7 +52,7 @@
 .popup h1 {
 	font-family: 'JetBrains Mono', sans-serif;
 	font-weight: 800;
-	font-size: 4rem;
+	font-size: clamp(2em, 7vmin, 4em);
 	color: var(--clr_board);
 	text-align: center;
 }
@@ -60,7 +60,7 @@
 .popup button {
 	font-family: 'JetBrains Mono', sans-serif;
 	font-weight: 500;
-	font-size: 1rem;
+	font-size: clamp(0.9em, 1.8vmin, 1.5em);
 	color: var(--clr_main);
 	text-align: center;
 	background-color: var(--clr_board);
@@ -80,7 +80,7 @@
 .scoreSection h5 {
 	font-family: 'JetBrains Mono', sans-serif;
 	font-weight: 700;
-	font-size: 1.5rem;
+	font-size: clamp(1em, 3vmin, 3em);
 	color: var(--clr_board);
 	text-align: center;
 }
