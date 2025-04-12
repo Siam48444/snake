@@ -1,4 +1,5 @@
 export const eatSound = new Audio('./assets/sounds/eat.mp3');
+export const hitSound = new Audio('./assets/sounds/hit.mp3');
 
 
 

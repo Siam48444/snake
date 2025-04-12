@@ -1,4 +1,4 @@
-import { eatSound, playSound } from './assets/sounds/sounds.js'
+import { eatSound, hitSound, playSound } from './assets/sounds/sounds.js'
 
 
 
@@ -234,6 +234,7 @@ function checkGameOverConditions() {
 	) {
 		gameOver = true;
 		popup.classList.add('popupOpen');
+		playSound(hitSound);
 		return;
 	}
 
