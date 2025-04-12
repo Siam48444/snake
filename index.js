@@ -201,56 +201,25 @@ function moveSnake(e) {
 	if (gameOver) return;
 
 	// Move up if not currently moving down
-	if (e.code === 'ArrowUp' && snakeVelocityY !== 1) {
+	if (e.code === 'ArrowUp' && snakeVelocityY === 0) {
 		snakeVelocityX = 0;
 		snakeVelocityY = -1;
 	}
 	// Move down if not currently moving up
-	if (e.code === 'ArrowDown' && snakeVelocityY !== -1) {
+	if (e.code === 'ArrowDown' && snakeVelocityY === 0) {
 		snakeVelocityX = 0;
 		snakeVelocityY = 1;
 	}
 	// Move left if not currently moving right
-	if (e.code === 'ArrowLeft' && snakeVelocityX !== 1) {
+	if (e.code === 'ArrowLeft' && snakeVelocityX === 0) {
 		snakeVelocityX = -1;
 		snakeVelocityY = 0;
 	}
 	// Move right if not currently moving left
-	if (e.code === 'ArrowRight' && snakeVelocityX !== -1) {
+	if (e.code === 'ArrowRight' && snakeVelocityX === 0) {
 		snakeVelocityX = 1;
 		snakeVelocityY = 0;
 	}
-}
-
-
-// Checks if the game is over
-function checkGameOverConditions() {
-	// Check if the snake crossed the boundary 
-	if (
-		snakeX < 0 ||
-		snakeY < 0 ||
-		snakeX + snakeWidth > boardWidth ||
-		snakeY + snakeHeight > boardHeight
-	) {
-		gameOver = true;
-		popup.classList.add('popupOpen');
-		playSound(hitSound);
-		return;
-	}
-
-	// Check if the snake has bitten itself 
-	// for (let i = 0; i < snakeBody.length; i++) {
-	// 	if (
-	// 		snakeX === snakeBody[i][0] &&
-	// 		snakeY === snakeBody[i][1]
-	// 	) {
-	// 		gameOver = true;
-	// 		if (confirm("Game Over! You bit yourself!\nPress OK to restart.")) {
- //            	initGame();
- //        	}
-	// 		return;
-	// 	}
-	// }
 }
 
 
@@ -270,4 +239,41 @@ function updateScore() {
 	// Update the popup scores
 	currentScorePopup.innerText = currentScore;
 	highScorePopup.innerText = highScore;
+}
+
+
+// Checks if the game is over
+function checkGameOverConditions() {
+	// Check if the snake crossed the boundary 
+	if (
+		snakeX < 0 || 
+		snakeX + snakeWidth >= boardWidth ||
+		snakeY < 0 || 
+		snakeY + snakeHeight >= boardHeight
+	) {
+		triggerGameOver();
+		return;
+	}
+
+	// Check if the snake has bitten itself 
+	// for (let i = 0; i < snakeBody.length; i++) {
+	// 	if (
+	// 		snakeX === snakeBody[i][0] &&
+	// 		snakeY === snakeBody[i][1]
+	// 	) {
+	// 		gameOver = true;
+	// 		if (confirm("Game Over! You bit yourself!\nPress OK to restart.")) {
+ //            	initGame();
+ //        	}
+	// 		return;
+	// 	}
+	// }
+}
+
+
+// Trigger the game over 
+function triggerGameOver() {
+	playSound(hitSound);
+	gameOver = true;
+	popup.classList.add('popupOpen');
 }
