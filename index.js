@@ -46,6 +46,10 @@ const colorFood = '#ee0000';
 // Others
 let gameOver;
 
+// Touchscreen
+let touchStartX = 0;
+let touchStartY = 0;
+
 
 
 // Set the board size when the page loads or the window is resized
@@ -90,6 +94,44 @@ window.addEventListener('load', () => {
 	// Make the game interactive 
 	setInterval(update, 5000 / snakeSpeed);
 	document.addEventListener('keydown', moveSnake);
+
+
+	// Touchscreen
+	document.addEventListener('touchstart', (e) => {
+		touchStartX = e.touches[0].clientX;
+		touchStartY = e.touches[0].clientY;
+	});
+
+	document.addEventListener('touchend', (e) => {
+		const touchEndX = e.changedTouches[0].clientX;
+		const touchEndY = e.changedTouches[0].clientY;
+
+		const diffX = touchEndX - touchStartX;
+		const diffY = touchEndY - touchStartY;
+
+		if (Math.abs(diffX) > Math.abs(diffY)) {
+			// Horizontal swipe
+			if (diffX > 0 && snakeVelocityX !== -1) {
+				snakeVelocityX = 1;
+				snakeVelocityY = 0;
+			} 
+			if (diffX < 0 && snakeVelocityX !== 1) {
+				snakeVelocityX = -1;
+				snakeVelocityY = 0;
+			}
+		}
+		else {
+			// Vertical swipe
+			if (diffY > 0 && snakeVelocityY !== -1) {
+				snakeVelocityX = 0;
+				snakeVelocityY = 1;
+			} 
+			if (diffY < 0 && snakeVelocityY !== 1) {
+				snakeVelocityX = 0;
+				snakeVelocityY = -1;
+			}
+		}
+	});
 });
 
 
