@@ -40,8 +40,8 @@ let currentScore;
 let highScore = localStorage.getItem('highScoreSnake') || 0;
 
 // Some colors
-const colorSnake = '#000';
-const colorFood = '#e84225';
+const colorSnake = '#000000';
+const colorFood = '#ee0000';
 
 // Others
 let gameOver;
