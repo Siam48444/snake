@@ -1,3 +1,7 @@
+import { eatSound, playSound } from './assets/sounds/sounds.js'
+
+
+
 const gameBoard = document.getElementById('gameBoard');
 const context = gameBoard.getContext('2d');
 const topSection = document.getElementById('topSection');
@@ -172,6 +176,7 @@ function update() {
 		snakeBody.unshift([foodX, foodY]);
 		placeFood();
 		updateScore();
+		playSound(eatSound);
 	}
 
 	// Check if the game is over
