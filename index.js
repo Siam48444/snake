@@ -27,7 +27,7 @@ let snakeHeight;
 let snakeVelocityX;
 let snakeVelocityY;
 let snakeBody;
-let snakeSpeed = 69; 
+let snakeSpeed = 60; 
 
 // The food variables
 let foodX;
@@ -171,9 +171,9 @@ function update() {
 		snakeX + snakeWidth > foodX &&
 		snakeX < foodX + foodWidth &&
 		snakeY + snakeHeight > foodY &&
-		snakeY < foodY + foodWidth
+		snakeY < foodY + foodHeight
 	) {
-		snakeBody.unshift([foodX, foodY]);
+		snakeBody.unshift([snakeX, snakeY]);
 		placeFood();
 		updateScore();
 		playSound(eatSound);
